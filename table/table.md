@@ -1,66 +1,66 @@
-#table×é¼ş
+#tableç»„ä»¶
 
-1.Ê¹ÓÃ·½·¨£º
+1.ä½¿ç”¨æ–¹æ³•ï¼š
 
-    (1)ÒıÈë×é¼ş:
+    (1)å¼•å…¥ç»„ä»¶:
 
         var Table = require(..../components/table/table.js)
 
-    (2)ÊµÀı»¯±í¸ñ:
+    (2)å®ä¾‹åŒ–è¡¨æ ¼:
 
-        var table = new Table(parameter)#´«²ÎÊı
+        var table = new Table(parameter)#ä¼ å‚æ•°
 
-    (3)³õÊ¼»¯±í¸ñ:
+    (3)åˆå§‹åŒ–è¡¨æ ¼:
 
         table.update();
-        #¸üĞÂupdateÊ±´«ÈëµÄÖµ±ØĞëÊÇ¼üÖµ¶Ô¶ÔÏó
-        #table.update({search:'ss',key:'Â©¶´',...})
+        #æ›´æ–°updateæ—¶ä¼ å…¥çš„å€¼å¿…é¡»æ˜¯é”®å€¼å¯¹å¯¹è±¡
+        #table.update({search:'ss',key:'æ¼æ´',...})
 
-    (4)äÖÈ¾Ò³Ãæ:
+    (4)æ¸²æŸ“é¡µé¢:
 
         $('#id').append(table.content)
 
-2.parameter²ÎÊı½á¹¹£º
+2.parameterå‚æ•°ç»“æ„ï¼š
 
     var inventory = {
-            url: "/api/admins",    #api½Ó¿Ú
+            url: "/api/admins",    #apiæ¥å£
             header: [
                 {
-                    title: "±àºÅ",                                        #ÌØÊâÁĞ£¬ÅÅĞòÎªµÚÒ»ÁĞ
+                    title: "ç¼–å·",                                        #ç‰¹æ®Šåˆ—ï¼Œæ’åºä¸ºç¬¬ä¸€åˆ—
                     output: function (num) {
                       return num = num + 1;
                     }
                 },
                 {
-                    title: "ÌâÄ¿",
+                    title: "é¢˜ç›®",
                     key: "title",
-                    output: function (key,list) {                        #³¬Á´½Ó
+                    output: function (key,list) {                        #è¶…é“¾æ¥
                       var link = $('<a href="/report/listDetail.html?nid="'+list['_id']+' target="_blank">'+list.title+'</a>')
                       return link;
                     }
                 },
-                {title: "³§ÉÌÃû³Æ", key: "firm"},                         #»ù´¡Êı¾İ¸ñÊ½
+                {title: "å‚å•†åç§°", key: "firm"},                         #åŸºç¡€æ•°æ®æ ¼å¼
                 {
-                    title:'Î£º¦µÈ¼¶',
+                    title:'å±å®³ç­‰çº§',
                     key:'level',
                     output:function(key,list){
-                        var obj = {0: 'µÍ', '1': 'ÖĞ',2:'¸ß'};
+                        var obj = {0: 'ä½', '1': 'ä¸­',2:'é«˜'};
                         var item = obj[list[key]];
                         return item;
                     }
                 },
                 {
-                    title: "²Ù×÷",                                        #±íÍ·
-                    key: "id",                                           #api½Ó¿Ú¶ÔÓ¦µÄÊı¾İkeyÖµ
-                    style: {width: "80", className: 'aa'},               #ÁĞµÄ¿íºÍclassÃû
-                    output: function (key,list) {                        #¶ÔÓ¦ÁĞµÄÊı¾İµÄµ¥¶À´¦Àíº¯Êı
-                                                                         #keyÊÇµ±Ç°ÁĞµÄkey,listÊÇÃ¿ĞĞµÄËùÓĞÊı¾İ
+                    title: "æ“ä½œ",                                        #è¡¨å¤´
+                    key: "id",                                           #apiæ¥å£å¯¹åº”çš„æ•°æ®keyå€¼
+                    style: {width: "80", className: 'aa'},               #åˆ—çš„å®½å’Œclasså
+                    output: function (key,list) {                        #å¯¹åº”åˆ—çš„æ•°æ®çš„å•ç‹¬å¤„ç†å‡½æ•°
+                                                                         #keyæ˜¯å½“å‰åˆ—çš„key,listæ˜¯æ¯è¡Œçš„æ‰€æœ‰æ•°æ®
                         var line =
-                            '<span id="' + list[key] + '" class="cursor delete">É¾³ı</span>' +
-                            '<a href="www.baidu.cn?id=' + list[key] + '" class="cursor detail">ÏêÇé</a>';
+                            '<span id="' + list[key] + '" class="cursor delete">åˆ é™¤</span>' +
+                            '<a href="www.baidu.cn?id=' + list[key] + '" class="cursor detail">è¯¦æƒ…</a>';
                         return line;
                     }
                 }
             ],
-            showPager: true                                     #ÊÇ·ñĞèÒª·ÖÒ³
+            showPager: true                                     #æ˜¯å¦éœ€è¦åˆ†é¡µ
         }

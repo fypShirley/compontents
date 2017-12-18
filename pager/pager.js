@@ -13,21 +13,17 @@ function Pager(param){  /*{pages:0,current:1,total:0,node:0};*/
     return num;
   };
   self.getPreValue = function(){
-    if(Info.current > 1){
-      Info.current = Info.current-1;self.update(Info);
-      return Info.current;
-    }
-  };
+    Info.current = Info.current-1;self.update(Info);
+    return Info.current;
+  }
   self.getNextValue = function(){
-    if(Info.current < Info.pages){
-      Info.current = Info.current+1;self.update(Info);
-      return Info.current;
-    }
-  };
+    Info.current = Info.current+1;self.update(Info);
+    return Info.current;
+  }
 
   var pageBox = $(tplPager);
-  var pageCount = pageBox.find('#pageCount');
-  var pageCounts = pageBox.find('#pageCounts');
+  var pageCount = pageBox.find('.pageCount');
+  var pageCounts = pageBox.find('.pageCounts');
 
   /*上一页下一页*/
 
@@ -36,16 +32,22 @@ function Pager(param){  /*{pages:0,current:1,total:0,node:0};*/
   if(Info.current == 1){
     prev.css("cursor","not-allowed");
   }
+
   if(Info.current == Info.pages){
     next.css("cursor","not-allowed");
   }
 
   prev[0].onclick = function(){
-    self.change(self.getPreValue());
+    if(Info.current > 1){
+      self.change(self.getPreValue());
+    }
 
   };
   next[0].onclick = function(){
-    self.change(self.getNextValue());
+    if(Info.current < Info.pages){
+      self.change(self.getNextValue());
+    }
+
   };
   /*数字首尾*/
   var firstSpan = $('<span value="1">1..</span>');
@@ -123,16 +125,22 @@ function Pager(param){  /*{pages:0,current:1,total:0,node:0};*/
   });
 
 
-  pageCount.find('.btn').onclick = function(){
+  pageCount.find('.btn').on('click',function(){
     var target =  $(this).prev().val();//页数
-    if(target<1){
-      target = 1;
-    }else if(target > Info.pages){
-      target = Info.pages;
+    if(parseInt(target)){
+      if(target<1){
+        target = 1;
+      }else if(target > Info.pages){
+        target = Info.pages;
+      }
+      self.change(self.getNumValue(target));
     }
-    self.change(self.getNumValue(target));
-  };
+
+  });
+
+
   self.update(Info);
+  return self;
 
 }
 /*function Pager(table) {

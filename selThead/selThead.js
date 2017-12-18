@@ -6,7 +6,7 @@ function Select(param) {
         optionParam = param.option;
     self.change = function () {};
 
-    var dropdown = $('<div class="dropdown open"></div>');
+    var dropdown = $('<div class="dropdown"></div>');
     var ul = $('<ul  class="dropdown-menu"></ul>');
     var linkA = $('<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"></a>');
     var titleSpan = $('<span>'+titleParam+'</span>');
@@ -28,12 +28,13 @@ function Select(param) {
     dropdown.append(linkA)
       .append(ul);
     self.content = dropdown;
-    /*self.getValue = function () {
-        return  select.val();
-    };*/
-    /*select[0].onchange = function () {
-        self.change(self.getValue());
-    };*/
+    self.getValue = function (num) {
+        return  num;
+    };
+    ul.on('click','li',function(){
+        var li_val = $(this).attr('data-num');
+        self.change(self.getValue(li_val));
+    });
     return self;
 
 }

@@ -71,23 +71,24 @@ function Table(option) {
   for(var i=0 ;i<table['HeadParam'].length;i++){
     var item = table['HeadParam'][i];
     var th = $('<th>');
-
-
-
     if(item.filter){
       var obj = {
         title:item.title,
         key:item['key'],
         option:item['filter']
       };
-      console.log(obj);
       var  UpDown= new upDown(obj);
       th.append(UpDown.content);
+      UpDown.change = function(value){
+        var result = {};
+        result[obj['key']] = value;
+        table.update(result);
+      };
     }else{
-      th.html(item.title)
-        .addClass(item['style']['className'])
-        .width(item['style']['width']);
+      th.html(item.title);
     }
+     th.addClass(item['style']['className'])
+        .width(item['style']['width']);
 
     theadTr.append(th);
   }
@@ -130,6 +131,7 @@ function Table(option) {
           tr.append(td);
           tfoot.append(tr);
           pager.change = function(value){
+            console.log(value);
             table['Pagination'].current = value;
             table.update();
           };
