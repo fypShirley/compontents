@@ -1,0 +1,87 @@
+@import "../../common/css/configer.less";
+table thead th.text-center {
+  text-align: center;
+}
+table thead th.text-right {
+  text-align: right;
+}
+table thead tr.bg-blue th {
+  background-color: #3278b3;
+  border-color: #3278b3;
+  color: #fff;
+  border-top: 1px solid #3278b3 !important;
+}
+table tbody td.text-center {
+  text-align: center;
+}
+table tbody td.text-right {
+  text-align: right;
+}
+.table-hover>tbody>tr.nodataTr:hover{background-color: transparent;}
+
+/*表格宽度*/
+.operateBoth{width: 100px;}/*4、5个字*/
+.operateOne{width: 50px;}/*2个字*/
+.createTime{width: 140px;}/*创建时间*/
+.middleWidth{width: 110px;}/*ip 内网，外网*/
+.domainWidth{width: 180px;}/*域名*/
+.emailWidth{width: 150px;}/*邮箱*/
+.spreadWidth{/*自由缩放的*/
+  max-width:100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/*分页器*/
+.pagers{margin-top:30px;}
+.pagers:after{content: '';display:block;clear: both;}
+.pageCount{ float: right }
+.pageCount span{
+  border: 1px solid #ccc;
+  padding:5px 10px;
+  font-style: normal;
+  color: #989ea6;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right:5px;
+}
+
+.pageCount span.active{  background: #0E83E9;color: #fff;  }
+.pageCount span:hover{  background: #0E83E9;color: #fff;  }
+.pageCount .pagerInput{width: 45px;height:26px;border: 1px solid #ccc;margin:0 5px;border-radius: 0;}
+.pageCount .btn{border-radius: 0;margin-left:5px;padding: 3px 10px;margin-top: -2px;}
+.pageCounts {color:#989ea6; float: left;}
+
+
+
+/*列表*/
+.table-responsive .table thead>tr th:nth-child(n+2){border-left: 1px solid #E1E6EB}
+.gridSection{margin-top:0px;}
+.gridSection .table-hover{min-height:50px;}
+.gridSection .table{background: #fff;font-size:12px;margin-top: 0px;border: 0px solid #e1e6eb;}
+.gridSection .table thead tr{border-left: 1px solid #E1E6EB;border-right: 1px solid #E1E6EB;border-top: 1px solid #E1E6EB}
+.gridSection .table tbody tr{border-left: 1px solid #E1E6EB;border-right: 1px solid #E1E6EB}
+.gridSection .table tfoot tr td{padding-right: 0px}
+.gridSection .table thead tr th{padding:8px 8px;font-weight: normal;color: #999;border-bottom: 1px solid #e1e6eb;background-color: #fafafa;}
+.gridSection .table thead tr th a.dropdown-toggle{color: #999;}
+.gridSection .dropdown-menu{font-size: 12px;border-radius:0px;padding:0px;box-shadow: 2px 2px 8px rgba(0,0,0,0.2);}
+.gridSection .console-table-search-list{min-width:100px;}
+.gridSection .dropdown-menu li a{display: block;clear:both;font-weight: normal;color:#333;white-space: nowrap;position:relative;padding:7px 16px;}
+.gridSection .table thead tr th .dropdown.open a{color: #333;}
+.gridSection .table tbody tr td{padding:8px;border-top:0px;border-bottom: 1px solid #e1e6eb;vertical-align: middle;}
+.gridSection .btn-xs{font-size:12px;padding:2px 8px;height:20px;line-height: 14px;}
+.gridSection .btn-link{color: #B81D27;text-shadow: none;border:none;}
+.gridSection .btn-link:hover{color:#B81D27;}
+.gridSection .text-explode{color: #ccc !important;font-weight: normal !important;margin: 0px 4px !important;}
+.gridSection .table tfoot tr td{padding:20px 0 0 ;border-bottom:0px solid #e1e6eb;vertical-align: middle;}
+.gridSection .pagination-info{display: inline-block;vertical-align:middle;zoom:1;padding:0px 16px;color:#999;}
+.gridSection .pagination{margin:0px;vertical-align:middle;border-radius:0px;}
+.gridSection .pagination a{border-radius:0px!important;}
+.gridSection tfoot input{border-radius:0px!important;}
+.gridSection tfoot button{border-radius:0px!important;font-size:12px;color:#333;border-color:#ddd;}
+.gridSection tfoot button:hover{ background: #f2f2f2;border-color:#ccc;}
+.gridSection tfoot button:active{ background: #f2f2f2;border-color:#ccc;}
+.gridSection tfoot button:focus{ background: #f2f2f2;border-color:#ccc;}
+/*列表的GO按钮*/
+.gridSection .gopl{margin-right:0px;display: inline-block;vertical-align: middle;}
+.gridSection .gopl input{height:31px;padding:6px;box-shadow:none;-webkit-box-shadow:none;border-color:#ddd;}
