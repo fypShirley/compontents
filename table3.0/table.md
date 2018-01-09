@@ -24,7 +24,7 @@
             #传入值table,搜集page,和thead筛选条件
             #返回值:  {page:1,city:'',area:''}
 
-        3、table.onPager = function(){ c
+        3、table.onPager = function(){
              #点击分页 ，执行loadList();
         };
 
@@ -54,9 +54,10 @@
                     title: "题目",                                                      #title必填
                     key: "title",                                                       #key必填
                     style: {width: "80", className: 'aa'}, #宽，或者class控制            #style选填 默认空
-                    output: function (key,list) {                                       #output选填 超链接
-                      var link = $('<a href="/report/listDetail.html?nid="'+list['_id']+' target="_blank">'+list.title+'</a>')
-                      return link;                         #对当前列的操作，key是data对应属性，list是整行数据
+                    output: function (key,list,tr) {                                    #output选填 超链接
+                            #key:键，list:整行数据,tr:tr,tr.cols存放这所有td，可进行操作
+                        var link = $('<a href="/report/listDetail.html?nid="'+list['_id']+' target="_blank">'+list.title+'</a>')
+                        return link;                         #对当前列的操作，key是data对应属性，list是整行数据
                     }
                 },
 

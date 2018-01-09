@@ -24,10 +24,10 @@ function Table(table_params) {
   var tbody =   template.find('.tbodyPart');
   var tfoot =   template.find('.tfootPart');
 
-/**********  列表所有信息  ***********/
+  /**********  列表所有信息  ***********/
   var Header = table_params['header'];
 
-/*初始化*/
+  /*初始化*/
   for(var j=0;j<Header.length;j++){
     var HeaderSigle = Header[j];//{}
     table['HeadParam'][j] = {
@@ -59,7 +59,7 @@ function Table(table_params) {
 
   table.onPager = function () {};
   table.onFilter = function () {};
-/**********  thead筛选器  ***********/
+  /**********  thead筛选器  ***********/
   /**
    *
    * @param num
@@ -106,7 +106,7 @@ function Table(table_params) {
     };
   };
 
-/**********  刷新列表  ***********/
+  /**********  刷新列表  ***********/
   table.update = function (DATA) {//{key:value,...}
     /*TABLE*/
     tbody.empty();
@@ -114,54 +114,56 @@ function Table(table_params) {
     tbody.append(loading(table['HeadParam'].length));
 
     /*ajax请求*/
-      tbody.empty();
-      var List = DATA.data;
-      var Page = {};
+    tbody.empty();
+    var List = DATA.data;
+    var Page = {};
 
-      if(table_params.showPager){ /*new Pager(table);*/
-        Page = DATA.page;
-        table['Pagination'].current = Page.current || 1;/*上次无数据时，下次为 1*/
-        table['Pagination'].node = Page.node;
-        table['Pagination'].total = Page.total;
-        table['Pagination'].pages = Math.ceil(Page.total/Page.node);
+    if(table_params.showPager){ /*new Pager(table);*/
+      Page = DATA.page;
+      table['Pagination'].current = Page.current || 1;/*上次无数据时，下次为 1*/
+      table['Pagination'].node = Page.node;
+      table['Pagination'].total = Page.total;
+      table['Pagination'].pages = Math.ceil(Page.total/Page.node);
 
+      var tr = $('<tr>');
+      var td = $('<td colspan="'+table['HeadParam'].length+'">');
+      var  pager= new Pager(table.Pagination);
+      td.append(pager.content);
+      tr.append(td);
+      tfoot.append(tr);
+      pager.change = function(value){
+        table['Pagination'].current = value;
+        table.onPager();
+      };
+    }
+
+    if(List.length == 0){
+      blankTable(tbody,table.HeadParam.length);
+    }else{
+      List.every(function (list,index) {
         var tr = $('<tr>');
-        var td = $('<td colspan="'+table['HeadParam'].length+'">');
-        var  pager= new Pager(table.Pagination);
-        td.append(pager.content);
-        tr.append(td);
-        tfoot.append(tr);
-        pager.change = function(value){
-          table['Pagination'].current = value;
-          table.onPager();
-        };
-      }
-
-      if(List.length == 0){
-        blankTable(tbody,table.HeadParam.length);
-      }else{
-        List.every(function (list,index) {
-          var tr = $('<tr>');
-          table.HeadParam.every(function (header) {
-            var td = $('<td>');
-            var row = '';
-            if(!header['key']){
-              row = header['output'](index);
-            }else{
-              row = header['output'](header['key'],list);
-            }
-            td.append(row)
-                .addClass(header['style']['className'])
-                .width(header['style']['width']);
-            tr.append(td);
-            return true;
-          });
-          tbody.append(tr);
+        tr.cols = [];
+        table.HeadParam.every(function (header) {
+          var td = $('<td>');
+          tr.cols.push(td[0]);
+          var row = '';
+          if(!header['key']){
+            row = header['output'](index);
+          }else{
+            row = header['output'](header['key'],list,tr);
+          }
+          td.append(row)
+              .addClass(header['style']['className'])
+              .width(header['style']['width']);
+          tr.append(td);
           return true;
         });
+        tbody.append(tr);
+        return true;
+      });
 
-      }
-      //option.success()
+    }
+    //option.success()
 
 
   };
@@ -180,7 +182,7 @@ function Table(table_params) {
     }
     return queryString;
   };
-/**********  列表DOM  ***********/
+  /**********  列表DOM  ***********/
   table.content = template;
 
   return table
