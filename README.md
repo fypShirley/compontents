@@ -3,17 +3,17 @@
 
         pager1.0效果图：
 
-            ![Image text](https://raw.github.com/fypShirley/repositpry/master/compontents/img/1.png)
+            ![Image text](https://raw.githubusercontent.com/fypShirley/compontents/master/img/1.png)
 
         pager2.0效果图：
 
-            ![Image text](https://raw.github.com/fypShirley/repositpry/master/compontents/img/2.png)
+            ![Image text](https://raw.githubusercontent.com/fypShirley/compontents/master/img/2.png)
 
         select_input效果图：
 
-            ![Image text](https://raw.github.com/fypShirley/repositpry/master/compontents/img/3.png)
+            ![Image text](https://raw.githubusercontent.com/fypShirley/compontents/master/img/3.png)
 
         select效果图：
 
-            ![Image text](https://raw.github.com/fypShirley/repositpry/master/compontents/img/4.png)
+            ![Image text](https://raw.githubusercontent.com/fypShirley/compontents/master/img/4.png)
 
