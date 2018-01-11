@@ -1,20 +1,20 @@
 #compontents
 #组件库
 
-        pager1.0效果图：
-
-            ![image](https://github.com/fypShirley/compontents/raw/master/img/1.png)
 
 
-        pager2.0效果图：
+            ![image](https://github.com/fypShirley/compontents/raw/master/img/p1.png)
 
-            ![image](https://github.com/fypShirley/compontents/raw/master/img/2.png)
 
-        select_input效果图：
 
-            ![image](https://github.com/fypShirley/compontents/raw/master/img/3.jpg)
 
-        select效果图：
+            ![image](https://github.com/fypShirley/compontents/raw/master/img/p2.png)
 
-            ![image](https://github.com/fypShirley/compontents/raw/master/img/4.jpg)
+
+
+            ![image](https://github.com/fypShirley/compontents/raw/master/img/sel_input.jpg)
+
+        
+
+            ![image](https://github.com/fypShirley/compontents/raw/master/img/sel.jpg)
 
